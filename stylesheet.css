@@ -72,6 +72,14 @@ header h1 {
 }
 
 /*nav*/
+.nav-sp {
+  display: none;
+}
+
+nav > .menu-icon {
+  display: none;
+}
+
 .nav-name {
   font-size: 3.0rem;
   float: left;
@@ -84,7 +92,6 @@ nav ul {
 
 nav li {
   display: inline-block;
-
 }
 
 nav li a {
@@ -93,6 +100,20 @@ nav li a {
   font-size: 2.0rem;
   font-family: 'Old Standard TT', serif;
   letter-spacing: 1px;
+  color: #1c1c1c;
+}
+
+nav li a::after {
+  content: '';
+  display: block;
+  width: 0;
+  margin: 2px auto 0;
+  border-bottom: 1px solid #1c1c1c;
+  transition: 0.3s ease-in-out;
+}
+
+nav li a:hover::after {
+  width: 100%;
 }
 
 /*topics*/
@@ -103,17 +124,7 @@ nav li a {
 }
 
 .topic-left {
-  float: left;
-  width: 30%;
-
   font-size: 6.0rem;
-}
-
-.topic-right {
-  float: left;
-  width: 70%;
-  padding-left: 40px;
-  border-left: 1px solid #fff;
 }
 
 .topic-right ul li {
@@ -147,10 +158,10 @@ nav li a {
 }
 
 .to-link {
-  background-color: #595959;
+  background-color: #3B5998;
   padding: 20px;
   text-align: center;
-  width: 400px;
+  max-width: 400px;
   margin: 0 auto;
   font-size:2.0rem;
 }
@@ -201,11 +212,20 @@ nav li a {
   line-height: 50px;
 }
 
+.concept p span::before {
+  content: '\A';
+  white-space: pre;
+}
+
+.concept-text-sp {
+  display: none;
+}
+
 /*food*/
 .food {
   background-color: #1c1c1c;
   color: #fff;
-  height: 850px;
+  min-height: 850px;
   padding: 100px 0;
 }
 
@@ -217,13 +237,8 @@ nav li a {
 /*menu-top*/
 
 .menu-top {
-  float: left;
-  width: 33.33333%;
-
   text-align: center;
   position: relative;
-  margin-bottom: 50px;
-
 }
 
 .menu-top img {
@@ -258,9 +273,6 @@ nav li a {
 /*menu-bottom*/
 
 .menu-bottom {
-  float: left;
-  width: 25%;
-
   text-align: center;
   position: relative;
 }
@@ -347,21 +359,9 @@ height: 100%;
   text-decoration: underline;
 }
 
-.access-detail-left {
-  float: left;
-  width: 300px;
-}
-
 .access-detail-right {
-  float: none;
-  width: auto;
-  margin-left: 340px;
-  font-size: 1.8rem;
-}
 
-.access-detail {
-  width: 680px;
-  margin: 0 auto;
+  font-size: 1.8rem;
 }
 
 /*contact*/
@@ -376,19 +376,12 @@ height: 100%;
 }
 
 .form-name {
-  float: left;
-  width: 50%;
-
   font-size: 1.8rem;
   color: #fff;
 }
 
 .form-set>input, .form-set>textarea {
-  float: left;
-  width: 50%;
-
   border: none;
-  max-width: 300px;
 }
 
 .form-set>input {
@@ -423,6 +416,7 @@ height: 100%;
   border: none;
   color: #fff;
   cursor: pointer;
+  letter-spacing: 2px;
 }
 
 /*footer*/
@@ -432,4 +426,231 @@ footer {
   font-size: 1.6rem;
   text-align: center;
   padding: 50px;
+}
+
+@media (min-width: 1000px) {
+  /*topics*/
+  .topic-left {
+    float: left;
+    width: 30%;
+    font-size: 6.0rem;
+  }
+
+  .topic-right {
+    float: left;
+    width: 70%;
+    padding-left: 40px;
+    border-left: 1px solid #fff;
+  }
+
+  /*menu*/
+  .menu-top {
+    float: left;
+    width: 33.33333%;
+    margin-bottom: 50px;
+  }
+
+  .menu-bottom {
+    float: left;
+    width: 25%;
+  }
+
+  /*access*/
+  .access-detail-left {
+    float: left;
+    width: 300px;
+  }
+
+  .access-detail-right {
+    float: none;
+    width: auto;
+    margin-left: 340px;
+    font-size: 1.8rem;
+  }
+
+  .access-detail {
+    width: 680px;
+    margin: 0 auto;
+  }
+
+}
+
+/*tab*/
+@media (max-width: 999px) {
+  /*header*/
+  .container {
+    margin: 0 10px;
+  }
+
+  header {
+    padding: 80px 10px 500px;
+  }
+
+  header h1 {
+    font-size: 3.0rem;
+    text-align: center;
+    margin-right: 0px;
+    color: #fff;
+  }
+
+  .name {
+    margin-top: 10px;
+    letter-spacing: 6px;
+    font-size: 4.0rem;
+  }
+
+  /*nav*/
+
+  /*topics*/
+  .topic-left {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  /*menu*/
+  .menu-top {
+    margin-bottom: 20px;
+  }
+
+  .menu-bottom {
+    margin-bottom: 20px;
+  }
+
+  /*g-map*/
+  .g-map {
+  padding-bottom: 56.25%;
+  padding-top: 60px;
+  }
+
+  /*access*/
+  .access-detail-left {
+    width: 300px;
+    height: 300px;
+    margin-bottom: 30px;
+  }
+
+  .access-detail {
+    text-align: center;
+  }
+
+}
+
+@media (min-width: 770px) {
+  .form-name {
+    float: left;
+    width: 50%;
+  }
+
+  .form-set>input, .form-set>textarea {
+    float: left;
+    width: 50%;
+  }
+}
+
+/*sp*/
+@media (max-width: 769px) {
+  /*header*/
+
+  /*nav*/
+  .nav-pc {
+    display: none;
+  }
+
+  .menu-icon {
+    display: block;
+    margin-top: 10px;
+    margin-right: 10px;
+    font-size: 4.0rem;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    background-color: #1c1c1c;
+    color: #fff;
+    padding: 10px 12px;
+    border-radius: 30px;
+    cursor: pointer;
+  }
+
+
+  /*topic*/
+  .topic {
+    padding: 100px 10px 100px;
+  }
+
+
+  .to-link span {
+    display: none;
+  }
+
+  .topic-right ul li p:nth-child(1) {
+    float: none;
+  }
+
+  .topic-right ul li p:nth-child(2) {
+    margin-left: 0px;
+  }
+
+  /*concept*/
+
+  .concept p {
+
+    left: 0;
+    text-align: left;
+    font-size: 1.8rem;
+    margin: 0 10px;
+  }
+
+  .concept-text-pc {
+    display: none;
+  }
+
+  .concept-text-sp {
+    display: block;
+  }
+
+  /*food*/
+
+
+  /*access*/
+
+
+  .access-text {
+    text-align: left;
+    font-size: 1.8rem;
+    margin: 0;
+  }
+
+  .access-detail-left {
+    width: 100%;
+    height: auto;
+  }
+
+  .access-detail-right {
+    text-align: left;
+  }
+
+  /*contact*/
+
+
+  .contact form {
+    padding: 30px 10px;
+  }
+
+  .form-set {
+    max-width: 400px;
+  }
+
+  .form-set>input, .form-set>textarea {
+    width: 100%;
+  }
+
+  .form-name {
+    margin-bottom: 10px;
+  }
+
+
+
+  /*footer*/
+
 }
