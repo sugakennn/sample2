@@ -4,7 +4,7 @@
     <title>SAMPLE2</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="sample2.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -12,46 +12,54 @@
   crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css?family=Old+Standard+TT" rel="stylesheet">
 
-  <script>
-
-  </script>
   </head>
-  <body>
-<span class="fa fa-bars menu-icon"></span>
+  <body id="top">
+
     <header>
 
-        <h1 class="main-font">Spanish & Italian baru</h1>
-        <h1 class="name main-font">SAMPLE</h1>
+      <span class="fa fa-bars menu-icon"></span>
+
+      <h1 class="main-font">Spanish & Italian baru</h1>
+      <h1 class="name main-font">SAMPLE</h1>
 
     </header>
 
-    <nav>
+    <div class="nav-sp" id="menu-modal">
+      <div id="modal">
+        <div id="close-modal">
+          <i class="fa fa-2x fa-times"></i>
+        </div>
+        <ul id="menu-modal-content">
+          <li><a href="#topics">Topics</a></li>
+          <li><a href="#concept">Concept</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#access">Access</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+
+
+
+    <nav id="nav">
+
       <div class="container nav-pc">
         <div class="nav-name main-font">SAMPLE</div>
         <ul>
-          <li><a href="">Home</a></li>
-          <li><a href="">Topics</a></li>
-          <li><a href="">Concept</a></li>
-          <li><a href="">Food</a></li>
-          <li><a href="">Access</a></li>
-        </ul>
-      </div>
-
-
-
-      <div class="nav-sp">
-        <ul>
-          <li><a href="">Home</a></li>
-          <li><a href="">Topics</a></li>
-          <li><a href="">Concept</a></li>
-          <li><a href="">Food</a></li>
-          <li><a href="">Access</a></li>
+          <li><a href="#topics">Topics</a></li>
+          <li><a href="#concept">Concept</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#access">Access</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
 
     </nav>
 
-    <section class="topic">
+
+  <div id="main-wrapper">
+
+    <section class="topic" id="topics">
       <div class="container">
         <div class="topic-wrapper clearfix">
           <div class="topic-left main-font">Topics</div>
@@ -80,7 +88,7 @@
       </div>
     </section>
 
-    <section class="concept">
+    <section class="concept" id="concept">
       <div class="container">
         <h2 class="main-font">Concept</h2>
 
@@ -101,17 +109,19 @@
 
     <section class="gallery"></section>
 
-    <section class="food">
+    <section class="food" id="menu">
       <div class="container">
       <h2 class="main-font">Menu</h2>
 
       <div class="menu-top-wrapper clearfix">
 
         <div class="menu-top">
+          <span class="menu-box">
           <a href="">
             <img src="photo3.png" alt="">
             <p>APPETIZERS</p>
           </a>
+        </span>
         </div>
 
         <div class="menu-top">
@@ -171,7 +181,7 @@
       </div>
     </section>
 
-    <section class="access">
+    <section class="access" id="access">
       <div class="container">
       <h2 class="main-font">Access</h2>
 
@@ -204,7 +214,7 @@
 
     </section>
 
-    <section class="contact">
+    <section class="contact" id="contact">
       <h2 class="main-font">Contact</h2>
 
         <form action="#" method="" name="">
@@ -231,6 +241,53 @@
       Spanish & Italian baru SAMPLE All rights reserved.
     </footer>
 
+  </div>
+
+  <script>
+
+  $(window).on('load',function(){$(function($){
+
+      $('.menu-icon').click(function(){
+        $('#menu-modal').fadeIn();
+      })
+
+      $('#close-modal').click(function(){
+        $('#menu-modal').fadeOut();
+      })
+
+      var navHeight = $('#nav').outerHeight();
+      var id = $('#nav').offset().top;
+
+      $(window).scroll(function(){
+        var position = $(this).scrollTop();
+        if (position > id) {
+          $('#nav').addClass('nav-fixed');
+          $('#main-wrapper').css('margin-top', navHeight);
+          console.log(id);
+          console.log(position);
+        } else {
+          $('#nav').removeClass('nav-fixed');
+          $('#main-wrapper').css('margin-top', '0');
+          console.log(id);
+          console.log(position);
+        }
+      });
+
+      $('#nav .nav-pc ul li a, #menu-modal-content li a').click(function(){
+        var str = $(this).attr('href');
+        var position = $(str).offset().top;
+        $('html, body').animate({
+          'scrollTop': position
+        }, 500)
+
+        $('#menu-modal').fadeOut();
+      })
+
+    });
+  });
+
+
+  </script>
 
   </body>
 </html>
