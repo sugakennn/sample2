@@ -96,7 +96,7 @@ nav li {
 
 nav li a {
   display: inline-block;
-  padding: 20px 10px;
+  padding: 20px 10px 18px;
   font-size: 2.0rem;
   font-family: 'Old Standard TT', serif;
   letter-spacing: 1px;
@@ -114,6 +114,16 @@ nav li a::after {
 
 nav li a:hover::after {
   width: 100%;
+}
+
+.nav-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  background-color: #fff;
+  border-bottom: 1px solid #1c1c1c;
 }
 
 /*topics*/
@@ -304,6 +314,16 @@ nav li a:hover::after {
   border-radius: 100px;
   color: #fff;
   margin: 0 auto;
+}
+
+.food a {
+  transition: -webkit-transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
+}
+
+.food a:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 /*g-map*/
@@ -549,8 +569,6 @@ footer {
 
 /*sp*/
 @media (max-width: 769px) {
-  /*header*/
-
   /*nav*/
   .nav-pc {
     display: none;
@@ -572,6 +590,67 @@ footer {
     cursor: pointer;
   }
 
+  /*modal*/
+  #menu-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 100;
+  }
+
+  #modal {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background-color: transition;
+    padding: 0px 0;
+    width: 100%;
+    height: auto;
+    text-align: center;
+  }
+
+  .fa-times {
+    position: absolute;
+    top: 22px;
+    right: 22px;
+    color: rgba(28, 28, 28, 0.9);
+    cursor: pointer;
+    background-color: #fff;
+    padding: 8px 10px;
+    border-radius: 20px;
+  }
+
+  #menu-modal-content {
+    height:100%;
+  }
+
+  #menu-modal-content li {
+    height: 20%;
+    background-color:transition;
+    border-bottom: 2px solid #fff;
+  }
+
+  #menu-modal-content li:first-child {
+    border-top: 2px solid #fff;
+  }
+
+  #menu-modal-content li a {
+    font-size: 3.0rem;
+    color: #fff;
+    height: 100%;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    vertical-align: middle;
+
+  }
 
   /*topic*/
   .topic {
@@ -635,6 +714,7 @@ footer {
 
   .contact form {
     padding: 30px 10px;
+    margin: 0 10px;
   }
 
   .form-set {
@@ -651,6 +731,7 @@ footer {
 
   .contact form {
     margin: 0 10px;
+
   }
 
   /*footer*/
